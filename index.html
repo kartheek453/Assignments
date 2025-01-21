@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Webpage</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* General Reset and Styling */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Content Styling */
+        .content {
+            margin-top: 56px; /* Matches navbar height */
+        }
+
+        .left-menu {
+            background-color: #f8f9fa;
+            padding: 15px;
+            height: 100vh;
+            overflow-y: auto;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .left-menu.collapsed {
+            transform: translateX(-100%);
+        }
+
+        .main-content {
+            padding: 15px;
+        }
+
+        .right-panel {
+            background-color: #f1f1f1;
+            padding: 15px;
+        }
+
+        /* Footer Styling */
+        .footer {
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Toggle Button Styling */
+        .toggle-btn {
+            display: none;
+            position: fixed;
+            top: 60px;
+            left: 15px;
+            z-index: 1050;
+            cursor: pointer;
+            font-size: 24px;
+            color: #007bff;
+        }
+
+        /* Responsive Styling */
+        @media (max-width: 768px) {
+            .toggle-btn {
+                display: block;
+            }
+
+            .left-menu {
+                position: fixed;
+                top: 56px;
+                left: 0;
+                height: calc(100vh - 56px);
+                width: 70%;
+                max-width: 300px;
+                z-index: 1050;
+                transform: translateX(-100%);
+            }
+
+            .left-menu.open {
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <span class="navbar-brand mb-0 h1">Enhanced Webpage</span>
+        </div>
+    </nav>
+
+    <!-- Toggle Button for Left Menu -->
+    <span class="toggle-btn" onclick="toggleMenu()"><i class="fas fa-bars"></i></span>
+
+    <!-- Page Content -->
+    <div class="container-fluid content">
+        <div class="row">
+            <!-- Left Menu -->
+            <div class="col-md-3 left-menu" id="leftMenu">
+                <h5>Menu</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="text-decoration-none">Home</a></li>
+                    <li><a href="#" class="text-decoration-none">About</a></li>
+                    <li><a href="#" class="text-decoration-none">Services</a></li>
+                    <li><a href="#" class="text-decoration-none">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-md-6 main-content">
+                <h3>Welcome to the Main Content Area</h3>
+                <p>This section contains the primary content of the webpage.</p>
+            </div>
+
+            <!-- Right Panel -->
+            <div class="col-md-3 right-panel">
+                <h5>Right Panel</h5>
+                <p>Additional links or advertisements can be placed here.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Your Name. All Rights Reserved.</p>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
